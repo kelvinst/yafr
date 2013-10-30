@@ -1,6 +1,8 @@
-# Yafr
+# YAFR
 
-TODO: Write a gem description
+Yet Another File Remover.
+
+YAFR (pronounce like wafer) is a command line tool for improve the file removing. It is in very alpha version, so I didn't really know what it will do someday (and when it does, be sure that will be here). Keep in track of the [issues list](https://github.com/kelvinst/yafr/issues) to keep up with the planned and the new features.
 
 ## Installation
 

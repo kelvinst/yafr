@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Yafr::VERSION
   spec.authors       = ["Kelvin Raffael Stinghen"]
   spec.email         = ["kelvin.stinghen@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{Yet Another File Remover}
+  spec.summary       = %q{A more user friendly command line tool to remove files.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
