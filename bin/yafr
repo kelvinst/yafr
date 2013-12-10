@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+
+$:.unshift File.join(File.dirname(__FILE__), *%w{ .. lib })
+
+require "yafr/version"
+require "mercenary"
+
+Mercenary.program(:yafr) do |p|
+  p.version Yafr::VERSION
+  p.description 'yafr is a CLI for removing like a hacker'
+
+  p.command(:regex) do |c|
+    c.syntax "yafr regex REGEX"
+    c.description "Delete all files that the name match REGEX"
+
+    c.action do |args, options|
+      entries = Dir.glob("#{Dir.getwd}/**")
+      to_delete, to_continue = entries.partition do |name|
+        !['.', '..'].include?(File.basename) && name =~ regex
+      end
+      File.delete(to_delete)
+    end
+  end
+end
