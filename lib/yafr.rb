@@ -1,4 +1,4 @@
-class Yafr
+module Yafr
   def self.by_regex(regex)
     directories, files = Dir["**/*"].select { |f| f.match regex }.partition { |f| File.directory? f }
 
