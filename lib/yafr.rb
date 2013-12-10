@@ -1,9 +1,8 @@
 module Yafr
-  def self.by_regex dir, regex
-    entries = Dir.glob("#{dir}/**")
-    to_delete, to_continue = entries.partition do |name|
-      !['.', '..'].include?(File.basename) && name =~ regex
-    }
-    File.delete(to_delete)
+  def self.by_regex(regex)
+    directories, files = Dir["**/*"].select { |f| f.match regex }.partition { |f| File.directory? f }
+
+    File.delete(*files)
+    directories.reverse_each { |dir| Dir.rmdir(dir) }
   end
 end

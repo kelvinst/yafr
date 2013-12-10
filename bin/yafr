@@ -2,6 +2,7 @@
 
 $:.unshift File.join(File.dirname(__FILE__), *%w{ .. lib })
 
+require "yafr"
 require "yafr/version"
 require "mercenary"
 
@@ -14,11 +15,7 @@ Mercenary.program(:yafr) do |p|
     c.description "Delete all files that the name match REGEX"
 
     c.action do |args, options|
-      entries = Dir.glob("#{Dir.getwd}/**")
-      to_delete, to_continue = entries.partition do |name|
-        !['.', '..'].include?(File.basename) && name =~ regex
-      end
-      File.delete(to_delete)
+      Yafr.by_regex(args[0])
     end
   end
 end
